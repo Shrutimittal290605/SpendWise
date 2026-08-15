@@ -1,35 +1,394 @@
-.navbarCSS{
-    padding: 15px 20px;
-    display: flex !important;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between !important;
-    width: 100vw;
-    
+/* =========================================
+   SpendWise Header
+   ========================================= */
+
+.spendwise-navbar {
+  background: rgba(8, 10, 18, 0.88) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  min-height: 76px;
+  position: sticky !important;
+  top: 0;
+  z-index: 1000 !important;
 }
 
+/* Brand */
 
-
-.navItemCSS{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+.spendwise-brand {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  margin-right: 25px;
 }
 
-/* .custom-toggler.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  } */
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
 
-/* 
-  @media only screen and (max-width: 600px) {
-    .navbarCSS {
-        padding: 0px 0px !important;
-    }
-    .navTitle{
-        font-size: 16px !important;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  } */
+  color: white;
+  font-size: 21px;
+  font-weight: 800;
 
+  background: linear-gradient(135deg, #7c5cff, #4da5ff);
+
+  box-shadow:
+    0 8px 25px rgba(96, 80, 255, 0.28);
+}
+
+.brand-name {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand-subtitle {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 10px;
+  margin-top: 5px;
+  letter-spacing: 0.4px;
+}
+
+/* Add transaction */
+
+.header-add-btn {
+  display: flex !important;
+  align-items: center;
+  gap: 7px;
+
+  border: none !important;
+  border-radius: 10px !important;
+
+  padding: 10px 16px !important;
+
+  font-weight: 600 !important;
+
+  background: linear-gradient(
+    90deg,
+    #7c5cff,
+    #4da5ff
+  ) !important;
+
+  box-shadow:
+    0 10px 25px rgba(82, 97, 255, 0.25);
+}
+
+.header-add-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 30px rgba(82, 97, 255, 0.35);
+}
+
+/* Profile */
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.profile-icon {
+  color: #8f7cff;
+  font-size: 30px !important;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.profile-label {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 10px;
+}
+
+/* Logout */
+
+.logout-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+
+  color: rgba(255, 255, 255, 0.78) !important;
+
+  border-radius: 9px !important;
+  padding: 9px 15px !important;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  color: white !important;
+}
+
+/* Login */
+
+.login-btn {
+  border: none !important;
+  border-radius: 9px !important;
+  padding: 9px 19px !important;
+
+  font-weight: 600 !important;
+
+  background: linear-gradient(
+    90deg,
+    #7c5cff,
+    #4da5ff
+  ) !important;
+}
+
+/* Mobile */
+
+.spendwise-toggler {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.spendwise-toggler:focus {
+  box-shadow: none !important;
+}
+
+@media (max-width: 991px) {
+  .spendwise-navbar {
+    padding: 10px 0;
+  }
+
+  .spendwise-brand {
+    margin-right: 0;
+  }
+
+  .navbar-collapse {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .user-profile {
+    margin-top: 10px;
+  }
+
+  .logout-btn {
+    margin-top: 10px;
+  }
+
+  .header-add-btn {
+    margin-top: 10px;
+  }
+}
+/* =========================================
+   SpendWise Account Menu
+   ========================================= */
+
+.user-profile-button {
+  border: none;
+  cursor: pointer;
+}
+
+.user-profile-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.account-menu {
+  position: fixed;
+
+  top: 68px;
+  right: 95px;
+
+  width: 270px;
+
+  background: #111524;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 16px;
+
+  padding: 12px;
+
+  z-index: 1200;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(18px);
+}
+
+.account-menu-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px;
+
+  margin-bottom: 8px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+.account-menu-header svg {
+  font-size: 35px;
+
+  color: #9b86ff;
+}
+
+.account-menu-header div {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-menu-header strong {
+  color: white;
+  font-size: 13px;
+}
+
+.account-menu-header span {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 10px;
+
+  margin-top: 2px;
+}
+
+.account-menu-item {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border: none;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  padding: 11px 12px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+
+  text-align: left;
+
+  transition: 0.2s ease;
+
+  cursor: pointer;
+}
+
+.account-menu-item:hover {
+  background: rgba(124, 92, 255, 0.1);
+
+  color: white;
+}
+
+.account-menu-item svg {
+  font-size: 19px;
+}
+
+.account-menu-logout {
+  color: #ff7f89;
+}
+
+.account-menu-logout:hover {
+  background: rgba(239, 68, 68, 0.08);
+
+  color: #ff7f89;
+}
+
+/* =========================================
+   Change Password Modal
+   ========================================= */
+
+.password-modal {
+  background: #111524;
+
+  color: white;
+
+  border-radius: 18px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  overflow: hidden;
+}
+
+.password-modal .modal-header {
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+.password-modal .modal-body {
+  padding: 24px;
+}
+
+.password-modal .form-label {
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 13px;
+}
+
+.password-modal .form-control {
+  background: #171b2c !important;
+
+  color: white !important;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08) !important;
+
+  border-radius: 10px !important;
+}
+
+.password-modal .form-control:focus {
+  border-color:
+    rgba(124, 92, 255, 0.7) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(124, 92, 255, 0.12) !important;
+}
+
+.password-modal-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+.password-save-btn {
+  border: none !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7c5cff,
+      #4da5ff
+    ) !important;
+
+  border-radius: 9px !important;
+}
+
+@media (max-width: 991px) {
+  .account-menu {
+    top: 75px;
+    right: 15px;
+  }
+}

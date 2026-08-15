@@ -17,7 +17,7 @@ const port = process.env.PORT;
 connectDB();
 
 const allowedOrigins = [
-  "http://localhost:3001",
+  "http://localhost:3000",
   "https://main.d1sj7cd70hlter.amplifyapp.com",
   "https://expense-tracker-app-three-beryl.vercel.app",
 ];
@@ -28,7 +28,7 @@ app.use(
   cors({
     origin: allowedOrigins,
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 app.use(helmet());

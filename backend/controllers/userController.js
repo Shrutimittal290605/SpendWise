@@ -136,3 +136,63 @@ export const allUsers = async (req, res, next) => {
         next(err);
     }
 }
+export const changePasswordController = async (req, res, next) => {
+    try {
+        const { userId, currentPassword, newPassword } = req.body;
+
+        if (!userId || !currentPassword || !newPassword) {
+            return res.status(400).json({
+                success: false,
+                message: "Please enter all fields",
+            });
+        }
+
+        if (newPassword.length < 6) {
+            return res.status(400).json({
+                success: false,
+                message: "New password must be at least 6 characters",
+            });
+        }
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found",
+            });
+        }
+
+        const isMatch = await bcrypt.compare(
+            currentPassword,
+            user.password
+        );
+
+        if (!isMatch) {
+            return res.status(401).json({
+                success: false,
+                message: "Current password is incorrect",
+            });
+        }
+
+        const salt = await bcrypt.genSalt(10);
+
+        user.password = await bcrypt.hash(
+            newPassword,
+            salt
+        );
+
+        await user.save();
+
+        return res.status(200).json({
+            success: true,
+            message: "Password changed successfully",
+        });
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+};
