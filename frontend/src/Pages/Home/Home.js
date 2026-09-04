@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import { useNavigate } from "react-router-dom";
+import AIChat from "../../components/AIChat";
 import {
   Button,
   Modal,
@@ -883,6 +884,7 @@ const Home = () => {
                   "90px",
               }}
             >
+              <AIChat user={cUser} />
               <div className="d-flex justify-content-between align-items-center mb-4">
                 <div>
                   <h4 className="fw-bold mb-1 text-white">
