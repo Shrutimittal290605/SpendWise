@@ -17,12 +17,11 @@ const app = express();
 const port = process.env.PORT;
 
 connectDB();
-
 const allowedOrigins = [
   "http://localhost:3000",
   "https://spend-wise-tm3s.vercel.app",
+  "https://spend-wise-tm3s-git-main-shruti-e91c.vercel.app",
 ];
-
 // Middleware
 app.use(express.json());
 app.use(
