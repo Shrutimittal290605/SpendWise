@@ -1,4 +1,4 @@
-export const host = "http://localhost:5000";
+export const host = "https://your-actual-render-url.onrender.com";
 // const host = "http://localhost:5000";
 export const setAvatarAPI = `${host}/api/auth/setAvatar`;
 export const registerAPI = `${host}/api/auth/register`;
